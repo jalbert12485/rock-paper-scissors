@@ -9,3 +9,5 @@ The second .html generalizes this to the case where you can have more than three
 2 beats 1 loses to 0 beats 4 and loses to 3.
 3 beats 2 loses to 1 beats 0 and loses to 4.
 4 beats 3 loses to 2 beats 1 and loses to 0.
+
+Note, in both cases, you will play 10 games.  After this, your results will be shown.
