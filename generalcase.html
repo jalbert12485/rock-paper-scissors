@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // Choice Variables 
+        var n=0;  //number of choices
+        var personChoice=0;  //what the person chooses
+        var compChoice=0; //what the computer gets
+        // Calcuations
+        var diffModN=0;
+        var diffMod2=0;
+        // Score variables.
+        var win=0;
+        var lose=0;
+        var tie=0;
+
+        // For loop
+        // var i=0;
+        // for(i=0; i<10; i++){
+
+        // Person is prompted for the size of the game.
+        n=prompt("How large of a game would you like to have?   Choose an odd natural number."); 
+        // Conver n to a number type.
+        n=Number(n);
+
+        // Get valid answer.
+
+        while(!(n >= 1) || n % 2 ===0 ){
+            alert("That is not a valid choice.")
+            // Person is prompted for choice.
+            n=prompt("How large of a game would you like to have?   Choose an odd natural number.");
+            n=Number(n);
+
+        }
+
+        // Play 10 times
+        for(i=0; i<10; i++){
+
+        // Person is prompted for choice.
+        personChoice=prompt("A number between 0 and " + (n-1));
+        while(!(0 <= personChoice && personChoice <= (n-1))){
+            alert("That is not a valid choice.")
+            // Person is prompted for choice.
+            personChoice=prompt("A number between 0 and " + (n-1));
+
+        }
+
+        
+        // Generate choice for computer.
+        compChoice=Math.floor(n*Math.random());
+        
+        // Check for tie.  If tie say so and stop.
+        if(personChoice==compChoice){
+            alert("You tie!");
+            tie++;
+        }  //If not a tie continue.
+        else{
+        // Determine difference mod n: Note % is not the same as mod since it doesn't work for negative nymbers
+            diffModN=(personChoice-compChoice);
+            diffModN=diffModN+n;
+            diffModN=diffModN % n;
+        // Determine if this difference is even or odd.
+            diffMod2=diffModN % 2;
+
+        // If even ( and not a tie, then you lose.)  If odd, you win.
+            if(diffMod2==0)
+            {
+                alert("You lose!");
+                lose++;
+            }
+            if(diffMod2==1){
+                alert("You win!");
+                win++;
+            }
+
+
+        }
+        }
+
+        alert("You won "+ win + ", lost " + lose + " and tied " + tie +" times.")
+
+        // For testing purposes.
+        // console.log("n" +n)
+        // console.log("personChoice"+personChoice);
+        // console.log("comp"+ compChoice);
+        // console.log("modn"+ diffModN);
+        // console.log("mod2"+ diffMod2);
+        // console.log("win"+win);
+        // console.log("lose"+lose);
+        // console.log("tie"+tie);
+
+
+    </script>
+
+
+</body>
+</html>

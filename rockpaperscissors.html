@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // Choice Variables 
+        var validChoices=["Rock","Paper","Scissors"];
+        var personChoice="Rock";
+        var compChoice=0;
+        // Calcuations
+        var personNumber=0;
+        var diffMod3=0;
+        // Score variables.
+        var win=0;
+        var lose=0;
+        var tie=0;
+
+        // For loop
+        var i=0;
+        for(i=0; i<10; i++){
+        // Person is prompted for choice.
+        personChoice=prompt("Choose Rock, Paper or Scissors.");
+
+        // Convert personChoice to number
+        personNumber=validChoices.indexOf(personChoice);
+
+        // Get valid answer.
+
+        while(personNumber===(-1)){
+            alert("That is not a valid choice.")
+                    // Person is prompted for choice.
+        personChoice=prompt("Choose Rock, Paper or Scissors.");
+
+        // Convert personChoice to number
+        personNumber=validChoices.indexOf(personChoice);
+
+        }
+
+        // Generate choice for computer.
+        compChoice=Math.floor(3*Math.random());
+      
+
+    
+        // Determine difference: Note % is not the same as mod since it doesn't work for negative nymbers
+        diffMod3=((personNumber-compChoice)+3) % 3;
+        
+        // Check if win, tie or lose.
+        if(diffMod3===0){
+            alert("You Tie!");
+            tie++;
+        }
+        if(diffMod3===1){
+            alert("You Win!");
+            win++;
+        }
+        if(diffMod3===2){
+            alert("You Lose!");
+            lose++
+        }
+
+
+        }
+
+
+        alert("You won " + win + ", lost " + lose + " and tied " + tie + " times.")
+
+
+
+    </script>
+
+
+</body>
+</html>
